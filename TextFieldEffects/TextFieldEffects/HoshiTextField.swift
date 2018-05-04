@@ -56,6 +56,18 @@ import UIKit
             updatePlaceholder()
         }
     }
+	
+	@IBInspectable dynamic open var placeholderInsets = CGPoint(x: 0, y: 6) {
+		didSet {
+			
+		}
+	}
+
+	@IBInspectable dynamic open var textFieldInsets = CGPoint(x: 0, y: 12) {
+		didSet {
+			
+		}
+	}
 
     override open var placeholder: String? {
         didSet {
@@ -71,8 +83,6 @@ import UIKit
     }
     
     private let borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.5)
-    private let placeholderInsets = CGPoint(x: 0, y: 6)
-    private let textFieldInsets = CGPoint(x: 0, y: 12)
     private let inactiveBorderLayer = CALayer()
     private let activeBorderLayer = CALayer()    
     private var activePlaceholderPoint: CGPoint = CGPoint.zero
@@ -146,7 +156,7 @@ import UIKit
             animateViewsForTextEntry()
         }
     }
-    
+	
     private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
